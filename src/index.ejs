@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="renderer" content="webkit" />
+	<meta name="force-rendering" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+	<meta name="author" content="Tencent-TGideas">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<!-- 启用360浏览器的极速模式(webkit) -->
+	<meta name="renderer" content="webkit">
+	<!-- 避免IE使用兼容模式 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="HandheldFriendly" content="true">
+	<!-- 微软的老式浏览器 -->
+	<meta name="MobileOptimized" content="320">
+	<!-- uc强制竖屏 -->
+	<meta name="screen-orientation" content="portrait">
+	<!-- QQ强制竖屏 -->
+	<meta name="x5-orientation" content="portrait">
+	<!-- UC强制全屏 -->
+	<meta name="full-screen" content="yes">
+	<!-- QQ强制全屏 -->
+	<meta name="x5-fullscreen" content="true">
+	<!-- UC应用模式 -->
+	<meta name="browsermode" content="application">
+	<!-- QQ应用模式 -->
+	<meta name="x5-page-mode" content="app">
+	<!-- windows phone 点击无高光 -->
+	<meta name="msapplication-tap-highlight" content="no">
+	<!-- 适应移动端end -->
+	<meta name="Description" content="">
+	<meta name="Keywords" content="">
+	<link rel="stylesheet" href="./assets/css/h5_common.css" />
+	<link rel="stylesheet" href="./assets/css/swiper3.min.css" />
+	<title></title>
+	<style>[v-cloak]{display: none!important;}</style>
+</head>
+
+<body>
+	<div id="app" v-cloak>
+		<img class="bg" src="./assets/img/20201014-h5-fupin_01.jpg" />
+		<div class="contentbox">
+			<img class="bg" src="./assets/img/20201014-h5-fupin_02.jpg" />
+			<div class="contenttxt">
+				<div class="swiper-container" id="shoupinbg">
+                    <div class="swiper-wrapper">
+                        <div v-for="data in jiaodiantu" class="swiper-slide" :style='data.styleObject' >
+                            <a :href="data.href">
+                                <h1>{{ data.title }}</h1>
+                            </a>
+						</div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+			</div>
+		</div>
+		<div class="contentbox">
+			<img class="bg" src="./assets/img/20201014-h5-fupin_03.jpg" />
+			<div class="contenttxt">
+				<img class="titimg" src="./assets/img/20201014-h5-fupin_tit1.png" />
+				<ul class="dongtaibaogao">
+					<li v-for='(data, index) in dongtaibaogao'>
+						<h1><a :href="data.href">{{ data.title }}</a></h1>
+                        <h2><a :href="data.href">{{ data.desc }}</a></h2>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contentbox">
+			<img class="bg" src="./assets/img/20201014-h5-fupin_04.jpg" />
+			<div class="contenttxt">
+				<img class="titimg" src="./assets/img/20201014-h5-fupin_tit2.png" />
+				<ul class="xunzhan">
+					<li v-for="(data, index) in xunzhan" style="background-image: url(./assets/img/20201009-pc-fupin-zhaopian.png);">
+						<div class="imgbox" :style='data.styleObject'>
+							<a :href="data.href"></a>
+						</div>
+						<h1><a :href="data.href">{{ data.title }}</a></h1>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contentbox">
+			<img class="bg" src="./assets/img/20201014-h5-fupin_06.jpg" />
+			<div class="contenttxt">
+				<img class="titimg" src="./assets/img/20201014-h5-fupin_tit3.png" />
+				<div class="swiper-container-box">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="data in fuhua">
+								<div class="scal">
+									<div class="imgbox" :style='data.styleObject'>
+										<a :href="data.href"></a>
+									</div>
+									<h1><a :href="data.href">{{ data.title }}</a></h1>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="contentbox">
+			<img class="bg" src="./assets/img/20201014-h5-fupin_07.jpg" />
+			<div class="contenttxt">
+				<img class="titimg" src="./assets/img/20201014-h5-fupin_tit4.png" />
+				<div id="tuopinji" class="swiper-container">
+					<div class="swiper-wrapper">
+						<div v-for="data in tuopinji" class="swiper-slide" :style='data.styleObject'>
+							<a :href="data.href">
+								<h1>{{ data.title }}</h1>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		const alldata = {
+			//首屏滚图
+			jiaodiantu: [
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					href: 'http://www.cqnews.net',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					desc: '',
+				},
+				{
+					title: '2题标题标题标题标题标题标题标题标题标题标题',
+					href: 'http://www.cqnews.net',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					desc: '',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					href: 'http://www.cqnews.net',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					desc: '',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					href: 'http://www.cqnews.net',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					desc: '',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					href: 'http://www.cqnews.net',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					desc: '',
+				},
+			],
+			//动态报道
+			dongtaibaogao: [
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '2题标题标题标题标题标题标题标题标题标题标题',
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+			],
+			//文化扶志巡展记
+			xunzhan: [
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '2题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '2题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+			],
+			//产业扶智文创孵化记
+			fuhua: [
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '2题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '2题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+			],
+			//书记视角驻村脱贫记
+			tuopinji: [
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+				{
+					title: '1题标题标题标题标题标题标题标题标题标题标题',
+					styleObject: {
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+					},
+					href: 'http://www.cqnews.net',
+					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
+				},
+			]
+		}
+	</script>
+	<script src="./assets/js/swiper3.min.js"></script>
+	<script src="./assets/js/vue2.0.0.js"></script>
+	<script src="./assets/js/index.js"></script>
+</body>
+
+</html>
