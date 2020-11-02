@@ -37,17 +37,17 @@
 	<!-- 适应移动端end -->
 	<meta name="Description" content="">
 	<meta name="Keywords" content="">
-	<link rel="stylesheet" href="./assets/css/h5_common.css" />
-	<link rel="stylesheet" href="./assets/css/swiper3.min.css" />
+	<link rel="stylesheet" href="<%= htmlWebpackPlugin.options.publicPath %>/css/h5_common.css" />
+	<link rel="stylesheet" href="<%= htmlWebpackPlugin.options.publicPath %>/css/swiper3.min.css" />
 	<title></title>
 	<style>[v-cloak]{display: none!important;}</style>
 </head>
 
 <body>
 	<div id="app" v-cloak>
-		<img class="bg" src="./assets/img/20201014-h5-fupin_01.jpg" />
+		<img class="bg" src="<%= require('./assets/img/20201014-h5-fupin_01.jpg') %>" />
 		<div class="contentbox">
-			<img class="bg" src="./assets/img/20201014-h5-fupin_02.jpg" />
+			<img class="bg" src="<%= require('./assets/img/20201014-h5-fupin_02.jpg') %>" />
 			<div class="contenttxt">
 				<div class="swiper-container" id="shoupinbg">
                     <div class="swiper-wrapper">
@@ -63,9 +63,9 @@
 			</div>
 		</div>
 		<div class="contentbox">
-			<img class="bg" src="./assets/img/20201014-h5-fupin_03.jpg" />
+			<img class="bg" src="<%= require('./assets/img/20201014-h5-fupin_03.jpg') %>" />
 			<div class="contenttxt">
-				<img class="titimg" src="./assets/img/20201014-h5-fupin_tit1.png" />
+				<img class="titimg" src="<%= require('./assets/img/20201014-h5-fupin_tit1.png') %>') %>" />
 				<ul class="dongtaibaogao">
 					<li v-for='(data, index) in dongtaibaogao'>
 						<h1><a :href="data.href">{{ data.title }}</a></h1>
@@ -75,11 +75,11 @@
 			</div>
 		</div>
 		<div class="contentbox">
-			<img class="bg" src="./assets/img/20201014-h5-fupin_04.jpg" />
+			<img class="bg" src="<%= require('./assets/img/20201014-h5-fupin_04.jpg') %>" />
 			<div class="contenttxt">
-				<img class="titimg" src="./assets/img/20201014-h5-fupin_tit2.png" />
+				<img class="titimg" src="<%= require('./assets/img/20201014-h5-fupin_tit2.png') %>" />
 				<ul class="xunzhan">
-					<li v-for="(data, index) in xunzhan" style="background-image: url(./assets/img/20201009-pc-fupin-zhaopian.png);">
+					<li v-for="(data, index) in xunzhan"  style="background-image: url('<%= require("./assets/img/20201009-pc-fupin-zhaopian.png") %>')">
 						<div class="imgbox" :style='data.styleObject'>
 							<a :href="data.href"></a>
 						</div>
@@ -89,9 +89,9 @@
 			</div>
 		</div>
 		<div class="contentbox">
-			<img class="bg" src="./assets/img/20201014-h5-fupin_06.jpg" />
+			<img class="bg" src="<%= require('./assets/img/20201014-h5-fupin_06.jpg') %>" />
 			<div class="contenttxt">
-				<img class="titimg" src="./assets/img/20201014-h5-fupin_tit3.png" />
+				<img class="titimg" src="<%= require('./assets/img/20201014-h5-fupin_tit3.png') %>" />
 				<div class="swiper-container-box">
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
@@ -110,9 +110,9 @@
 			</div>
 		</div>
 		<div class="contentbox">
-			<img class="bg" src="./assets/img/20201014-h5-fupin_07.jpg" />
+			<img class="bg" src="<%= require('./assets/img/20201014-h5-fupin_07.jpg') %>" />
 			<div class="contenttxt">
-				<img class="titimg" src="./assets/img/20201014-h5-fupin_tit4.png" />
+				<img class="titimg" src="<%= require('./assets/img/20201014-h5-fupin_tit4.png') %>" />
 				<div id="tuopinji" class="swiper-container">
 					<div class="swiper-wrapper">
 						<div v-for="data in tuopinji" class="swiper-slide" :style='data.styleObject'>
@@ -133,7 +133,7 @@
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					href: 'http://www.cqnews.net',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					desc: '',
 				},
@@ -141,7 +141,7 @@
 					title: '2题标题标题标题标题标题标题标题标题标题标题',
 					href: 'http://www.cqnews.net',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					desc: '',
 				},
@@ -149,7 +149,7 @@
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					href: 'http://www.cqnews.net',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					desc: '',
 				},
@@ -157,7 +157,7 @@
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					href: 'http://www.cqnews.net',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					desc: '',
 				},
@@ -165,7 +165,7 @@
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					href: 'http://www.cqnews.net',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					desc: '',
 				},
@@ -193,7 +193,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -201,7 +201,7 @@
 				{
 					title: '2题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -209,7 +209,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -217,7 +217,7 @@
 				{
 					title: '2题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -228,7 +228,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -236,7 +236,7 @@
 				{
 					title: '2题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -244,7 +244,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -252,7 +252,7 @@
 				{
 					title: '2题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -260,7 +260,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -268,7 +268,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -279,7 +279,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -287,7 +287,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -295,7 +295,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -303,7 +303,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -311,7 +311,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -319,7 +319,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -327,7 +327,7 @@
 				{
 					title: '1题标题标题标题标题标题标题标题标题标题标题',
 					styleObject: {
-						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg")'
+						backgroundImage: 'url("http://images1.wenming.cn/web_wenming/a/dt/202010/W020201006510096761055.jpg'
 					},
 					href: 'http://www.cqnews.net',
 					desc: '向祖国献礼——庆祝中华人民共和国成立70周年第七届重庆市美术作品展览暨第十三届全国美展重庆选送作品展”院美术馆同时开幕。',
@@ -335,9 +335,9 @@
 			]
 		}
 	</script>
-	<script src="./assets/js/swiper3.min.js"></script>
-	<script src="./assets/js/vue2.0.0.js"></script>
-	<script src="./assets/js/index.js"></script>
+	<script src="<%= htmlWebpackPlugin.options.publicPath %>/js/swiper3.min.js"></script>
+	<script src="<%= htmlWebpackPlugin.options.publicPath %>/js/vue2.0.0.js"></script>
+	<script src="<%= htmlWebpackPlugin.options.publicPath %>/js/index.js"></script>
 </body>
 
 </html>

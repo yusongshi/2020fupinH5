@@ -2,12 +2,24 @@ let path = require("path");
 let htmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+// 环境判断
+let OutPut = {};
+const env = process.env.NODE_ENV;
+if(env === "production" || env === "none"){
+    OutPut.folder = "404176";
+	OutPut.assets= "404176"; 
+}else{
+    OutPut.folder = "dist";
+	OutPut.assets= "assets"; 
+};
+
+
 module.exports = {
     entry: './main.js',
     output: {
         //path:'./dist/js',
-        path: path.resolve(__dirname, './dist'),
-        filename: './assets/js/index.js'
+        path: path.resolve(__dirname, `./${OutPut.folder}`),
+        filename: `./${OutPut.assets}/js/index.js`
     },
     module: {
         rules: [
@@ -73,7 +85,7 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             limit: 5120,
-                            name: './assets/img/[name].[ext]?[hash]',
+                            name: `./${OutPut.assets}/img/[name].[ext]?[hash]`,
                             esModule:false
                         }
                     }
@@ -85,27 +97,28 @@ module.exports = {
         new htmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.ejs',
-            inject: false
+            inject: false,
+            publicPath: `${OutPut.assets}`
         }),
         new CopyWebpackPlugin({
             patterns: [
                 {
                     from: path.resolve(__dirname, './src/assets/css'),
-                    to: path.resolve(__dirname, './dist/assets/css'),
+                    to: path.resolve(__dirname, `./${OutPut.folder}/${OutPut.assets}/css`),
                     globOptions: {
                         ignore: ['**/*.scss','**/*.map'],// **表示当前目录
                     }
                 },
                 {
                     from: path.resolve(__dirname, './src/assets/js'),
-                    to: path.resolve(__dirname, './dist/assets/js'),
+                    to: path.resolve(__dirname, `./${OutPut.folder}/${OutPut.assets}/js`),
                     globOptions: {
                         ignore: ['**/index.js','**/css.js'],
                     }
                 },
                 {
                     from: path.resolve(__dirname, './src/assets/img'),
-                    to: path.resolve(__dirname, './dist/assets/img'),
+                    to: path.resolve(__dirname, `./${OutPut.folder}/${OutPut.assets}/img`),
                 },
             ]
         }),
